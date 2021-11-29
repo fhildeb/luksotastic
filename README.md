@@ -35,9 +35,9 @@ Script Languages:
 
 [YouTube Channel with Showcase](https://www.youtube.com/channel/UCy1csiV8jDnhyQ5mineUXVA/featured)
 
-![luksotastic_showcase_1](luksotastic_showcase_1.png)
-![luksotastic_showcase_2](luksotastic_showcase_2.png)
-![luksotastic_showcase_3](luksotastic_showcase_3.png)
+![luksotastic_showcase_1](./public/luksotastic_showcase_1.png)
+![luksotastic_showcase_2](./public/luksotastic_showcase_2.png)
+![luksotastic_showcase_3](./public/luksotastic_showcase_3.png)
 
 ## 3. Setup
 
