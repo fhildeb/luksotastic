@@ -2,6 +2,9 @@
 
 Contribution to the "Hack your Profile" Hackathon from LUKSO
 
+Project Name: LUKSOTASTIC
+Participants: [fhildeb](https://github.com/fhildeb)
+
 ## 1. Introduction
 
 This project is a contribution to the "Hack your Profile" Hackathon from the LUKSO Network. Users can execute the application in modern browsers connected to MetaMask on the LUKSO L14 test network.
@@ -33,7 +36,7 @@ Script Languages:
 
 ## 2. Showcase
 
-[YouTube Channel with Showcase](https://www.youtube.com/channel/UCy1csiV8jDnhyQ5mineUXVA/featured)
+[YouTube Showcase](https://youtu.be/3s1VYAGsVBQ)
 
 ![luksotastic_showcase_1](./public/luksotastic_showcase_1.png)
 ![luksotastic_showcase_2](./public/luksotastic_showcase_2.png)

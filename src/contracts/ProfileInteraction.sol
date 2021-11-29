@@ -191,11 +191,9 @@ contract ProfileInteraction {
 
             for (uint8 i = 0; i <= 8; i++) {
                 if (
-                    assetInteraction[_asset].upvoteAmount >=
+                    assetInteraction[_asset].upvoteAmount >
                     topAssetUpvote[i].unit
                 ) {
-                    topAssetUpvote[i].asset = address(0);
-                    topAssetUpvote[i].unit = 0;
                     for (uint8 s = 8; s > i; s--) {
                         if (_asset == topAssetUpvote[s].asset) {
                             topAssetUpvote[s].asset = address(0);
@@ -240,10 +238,8 @@ contract ProfileInteraction {
              */
             for (uint8 i = 0; i <= 8; i++) {
                 if (
-                    assetInteraction[_asset].hypeAmount >= topAssetHype[i].unit
+                    assetInteraction[_asset].hypeAmount > topAssetHype[i].unit
                 ) {
-                    topAssetHype[i].asset = address(0);
-                    topAssetHype[i].unit = 0;
                     for (uint8 s = 8; s > i; s--) {
                         if (_asset == topAssetHype[s].asset) {
                             topAssetHype[s].asset = address(0);
@@ -286,11 +282,9 @@ contract ProfileInteraction {
              */
             for (uint8 i = 0; i <= 8; i++) {
                 if (
-                    assetInteraction[_asset].supportAmount >=
+                    assetInteraction[_asset].supportAmount >
                     topAssetSupport[i].unit
                 ) {
-                    topAssetSupport[i].asset = address(0);
-                    topAssetSupport[i].unit = 0;
                     for (uint8 s = 8; s > i; s--) {
                         if (_asset == topAssetSupport[s].asset) {
                             topAssetSupport[s].asset = address(0);
@@ -322,8 +316,7 @@ contract ProfileInteraction {
          * than any of the current top 9.
          */
         for (uint8 i = 0; i <= 8; i++) {
-            if (balanceOf[_owner] >= balanceOf[topAccounts[i]]) {
-                topAccounts[i] = address(0);
+            if (balanceOf[_owner] > balanceOf[topAccounts[i]]) {
                 for (uint8 s = 8; s > i; s--) {
                     if (_owner == topAccounts[s]) {
                         topAccounts[s] = address(0);
@@ -350,8 +343,7 @@ contract ProfileInteraction {
          * than any of the current top 9.
          */
         for (uint8 i = 0; i <= 8; i++) {
-            if (balanceOf[msg.sender] >= balanceOf[topAccounts[i]]) {
-                topAccounts[i] = address(0);
+            if (balanceOf[msg.sender] > balanceOf[topAccounts[i]]) {
                 for (uint8 s = 8; s > i; s--) {
                     if (msg.sender == topAccounts[s]) {
                         topAccounts[s] = address(0);
