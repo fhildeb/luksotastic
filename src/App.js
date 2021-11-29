@@ -268,6 +268,16 @@ class App extends React.Component {
                 Add the LUKSO L14 to MetaMask
               </div>
             </div>
+            <div
+              className="DocumentationButton"
+              onClick={() =>
+                window
+                  .open('http://faucet.l14.lukso.network/', '_blank')
+                  .focus()
+              }
+            >
+              Get LYX from the Faucet
+            </div>
             <div>
               <div
                 className="DocumentationButton"
