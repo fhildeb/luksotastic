@@ -115,6 +115,8 @@ class App extends React.Component {
     // Default
     else {
       this.logMetaMask('Please install MetaMask');
+      this.navigate(0);
+      this.lockApp();
       return;
     }
 
@@ -1775,6 +1777,7 @@ class App extends React.Component {
     // Fetch network
     const networkID = await web3.eth.net.getId();
     const networkHost = await web3.eth.net._provider.host;
+
     if (networkID !== 22 && networkHost !== 'https://rpc.l14.lukso.network') {
       this.logMetaMask('Please set your network to the Lukso L14 Testnetwork');
       // LUKSO not set
