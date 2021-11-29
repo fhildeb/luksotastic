@@ -1,0 +1,603 @@
+/**
+ * Custom tags
+ * ordered by usage
+ */
+ input {
+  background-color: #9b9fa0;
+  padding: 15px 0px 15px 25px;
+  margin-top: 15px;
+  border: 3px solid #815668;
+  border-radius: 10px;
+  color: #815668;
+  max-width: 350px;
+  min-width: 350px;
+  display: inline-block;
+  font-size: small;
+}
+
+form{
+  display: inline-block;
+}
+
+textarea:focus, input:focus{
+  outline: none;
+}
+
+/**
+ * Static custom classes
+ * ordered by usage
+ */
+
+ /* General + Menu */
+
+ .App {
+  text-align: center;
+  padding: 10px;
+  color: #9B9FA0;
+}
+
+
+.Head {
+  display: inline-block;
+  vertical-align: top;
+  margin: 10px 50px 10px 50px;
+  cursor: pointer;
+  color: #032C48;
+}
+
+.MenuBar {
+  display: block;
+}
+
+.MenuBarDisabled {
+  display: none;
+}
+
+.HeadDisabled {
+  display: inline-block;
+  vertical-align: top;
+  margin: 10px 50px 10px 50px;
+}
+
+.Logo {
+  width: 400px;
+}
+
+.Nav {
+  display: none;
+}
+
+/* Documentation page */
+
+.DocumentationHeader{
+  width: 98%;
+  background-color: #032C48;
+  border-radius: 10px 10px 0px 0px;
+  min-height: 300px;
+  display: none;
+  display: inline-block;
+  padding: 1%;
+}
+
+.DocumentationImg {
+  border-radius: 10px;
+  margin: 1%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 80%;
+}
+
+.DocumentationButton{
+  cursor: pointer;
+  font-size: 20px;
+  border: 1px solid #D49B97;
+  width: 400px;
+  border-radius: 10px;
+  padding: 10px;
+  display: inline-block;
+  margin: 1%;
+}
+
+.DocumentationWrapper{
+  top: 50%;
+}
+
+.ListImg {
+  border-radius: 10px;
+  width: 25%;
+  margin: auto;
+}
+
+.ListText {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 1%;
+  padding-top: 2.5%;
+}
+
+.Left {
+  float: left;
+  width: 30%;
+  display: table;
+  margin-top: 2%+10vw;
+  margin-left: 20%;
+}
+
+.DocumentationList {
+  width: 90%;
+  text-align: center;
+  padding: 2px;
+  display:flex;
+}
+
+.DocumentationContent {
+  width: 48%;
+  text-align: center;
+  padding: 2px;
+  margin: auto;
+}
+
+.DocumentationBody{
+  width: 98%;
+  background-color: #D49B97;
+  min-height: 350px;
+  display: none;
+  display: inline-block;
+  padding: 1%;
+}
+
+.DocumentationFooter{
+  width: 98%;
+  background-color: #032C48;
+  border-radius: 0px 0px 10px 10px;
+  min-height: 300px;
+  display: none;
+  display: inline-block;
+  padding: 1%;
+}
+
+/* Search + Sample page */
+
+.WalletStatusContainer {
+  width: 100%;
+  background-color: #032C48;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.WalletStatusBar {
+  border-radius: 6px;
+  margin: 0 auto;
+  display: table;
+}
+
+.WalletStatusLeft {
+  position: absolute;
+}
+
+.MetamaskPicture {
+  width: 15px;
+  padding-top: 17px;
+}
+
+.WalletStatusRight {
+  float: left;
+  padding-left: 20px;
+  position: inline-block;
+  white-space: pre-wrap
+}
+
+.InputContainer {
+  width: 100%;
+  text-align: center;
+  background-color: #032C48;
+  margin: -15px 0px 0px 0px;
+}
+
+.FetchButton {
+  margin-top: 15px;
+  border: 3px solid #815668;
+  border-radius: 5px;
+  background-color: #09304C;
+  text-align: center;
+  padding: 15px;
+  transition: all 0.5s;
+  cursor: pointer;
+  color: #9B9FA0;
+  width: 30%;
+  height: 51px;
+  margin-left: 30px;
+  max-width: 200px;
+  min-width: 110px;
+  display: inline-block;
+}
+
+.FetchButton span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.FetchButton span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.FetchButton:hover span {
+  padding-right: 25px;
+}
+
+.FetchButton:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.InputErrorText{
+  background-color: #032C48;
+  padding: 20px 0px 20px 0px;
+  color: #9B9FA0;
+  margin-top: -2px;
+}
+
+.ProfileArea {
+  background-color: #032C48;
+  padding-bottom: 10px;
+  margin-top: -20px;
+}
+
+.ProfileDescription {
+  padding-left: 200px;
+  padding-right: 200px;
+  background-color: #032C48;
+  margin-top: -23px;
+  padding-bottom: 2px;
+}
+
+.DescriptionText {
+
+  margin: 0 auto;
+  border-radius: 10px 10px 0px 0px;
+  margin-bottom: -13px;
+  margin-top: 20px;
+  display: table;
+  padding: 5px 30px 7px 30px;
+  width: 90%;
+  background-color: #D49B97;
+  color: #815668 ;
+  font-size: 20px;
+}
+
+.ProfileDisplay{
+  background-color: #032C48;
+  padding: 0px 0px 15px 0px;
+  margin-top: -2px;
+}
+
+.ProfileBackground {
+  width: 90%;
+  height: 300px;
+  border-radius: 150px;
+  object-fit: cover;
+  background-color: #D49B97;
+  border: 3px solid #D49B97;
+  margin-top: -2px;
+}
+
+.ProfileWing{
+  color: #7F5468;
+  font-size: 20px;
+  display: inline-block;
+  background-color:#D49B97;
+  border-radius: 0px 0px 10px 10px;
+  width: 24%;
+  margin-top: -5px;
+  padding-top: 2px;
+  padding-bottom: 5px;
+}
+
+.Spacer {
+  width: 9%;
+  display: inline-block;
+  max-width: 115px;
+}
+
+.SeperatorBlock{
+  background-color: #032C48;
+  margin-top: -20px;
+  height: 80px;
+}
+
+.ProfilePicture {
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+  margin-top: -150px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 3px solid #D49B97;
+  background-color: #D49B97;
+}
+
+.AssetArea {
+    background-color: #D49B97;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 10px;
+    border-radius: 0px 0px 10px 10px;
+    min-height: 10px;
+}
+
+ /* Explore page */
+
+ .ExploreHeader{
+  width: 100%;
+  background-color: #032C48;
+  border-radius: 10px 10px 0px 0px;
+  display: none;
+  padding: 5px 0px 5px 0px;
+  margin-bottom: -8px;
+}
+
+.Headline{
+  font-size: 30px;
+}
+
+.Bright{
+  color: #D49B97;
+}
+
+.BrightHR{
+  border-top: 4px solid #D49B97;
+  border-color: #D49B97;
+  border-left: none;
+  border-right: none;
+}
+
+.DarkContent{
+  width: 100%;
+  background-color: #032C48;
+  border-radius: 0px 0px 10px 10px;
+  margin-bottom: 10px;
+  display: none;
+  margin-top: -8px;
+  padding-bottom: 1%;
+}
+
+.Submenu{
+  padding: 1%;
+  cursor: pointer;
+  display: inline-block;
+  color: #7F5468;
+}
+
+.BigStats {
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+.LeftStat{
+  display: inline-block;
+  text-align: left;
+  width: 16%;
+}
+
+.RightStat{
+  display: inline-block;
+  padding-left: 1%;
+  width: 10%;
+  text-align: right;
+}
+
+.ExploreBody{
+  width: 100%;
+  background-color: #D49B97;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  display: none;
+  border-radius: 10px 10px 0px 0px;
+  padding: 5px 0px 5px 0px;
+  margin-bottom: -8px;
+}
+
+.Dark{
+  color: #032C48
+}
+
+.DarkHR{
+  border-top: 4px solid #032C48;
+  border-color: #032C48;
+  background-color: #032C48;
+  border-left: none;
+  border-right: none;
+}
+
+.BrightContent{
+  width: 99%;
+  background-color: #D49B97;
+  border-radius: 0px 0px 10px 10px;
+  margin-bottom: 10px;
+  margin-top: -8px;
+  display: none;
+  min-height: 300px;
+  padding: 1% 0% 0 1%;
+}
+
+.ExploreFooter{
+  width: 100%;
+  background-color: #032C48;
+  border-radius: 10px 10px 0px 0px;
+  display: none;
+  padding: 5px 0px 5px 0px;
+  margin-bottom: -8px;
+  margin-top: 5px;
+}
+
+.DarkContentProfile{
+  width: 100%;
+  background-color: #032C48;
+  border-radius: 0px 0px 10px 10px;
+  margin-bottom: 10px;
+  display: none;
+  margin-top: -8px;
+  padding-bottom: 1%;
+  min-height: 300px;
+}
+
+/**
+ * Custom classes loaded onto
+ * webcontent afterwards
+ * ordered by usage
+ */
+
+ /* Search + Explore page */
+
+ .Asset {
+  width: 30%;
+  background-color: #032C48;
+  padding: 10px;
+  text-align: center;
+  margin: 0px 1% 1% 0px;
+  display: inline-block;
+  vertical-align: top;
+  border-radius: 10px;
+}
+
+.AssetImg {
+  width: 100%;
+  height: 70%;
+  object-fit: cover;
+  border-radius: 10px 10px 10px 10px;
+  width: 100%;
+  height: 30vw;
+}
+
+.DescContainer {
+  height: 80px;
+  position: relative;
+}
+
+.AssetDesc {
+  background-color:#032C48;
+  padding: 10px;
+  border-radius: 0px 0px 10px 10px;
+  color: #815668;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.Interaction {
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  background-color: #032C48;
+  cursor: pointer;
+  color: #815668;
+  font-size: 15px;
+  margin-left: 5px;
+  margin-right: 5px;
+  height: 50px;
+  width: 80px;
+  border: hidden;
+}
+
+.AssetStat{
+  float: left;
+  margin-top: 15px;
+  margin-left: 15px;
+}
+
+.StatLine{
+  margin-top: 10px;
+  margin-bottom: -10px;
+  display: inline-block;
+  border-radius: 10px;
+  color: #7F5468;
+  text-align: end;
+  background-color: #032C48;
+  width: 98%;
+}
+
+ /* Explore page */
+
+ .ProfileRank{
+  padding-top: 1%;
+  padding-right: 1%;
+  display: inline-block;
+}
+
+.BlockchainAddress {
+  padding-top: 1%;
+  display: inline-block;
+}
+
+.Round{
+  border-radius: 10px;
+}
+
+.Ranking {
+  padding-bottom: 10px;
+}
+
+/**
+ * Transforming custom classes
+ * on disabled functionalities
+ * ordered by usage
+ */
+
+ /* Search + Explore page */
+
+ .LockedAsset {
+  width: 30%;
+  height: 20%;
+  background-color: #032C48;
+  padding: 10px;
+  text-align: center;
+  margin: 0px 10px 10px 0px;
+  display: inline-block;
+  vertical-align: top;
+  border-radius: 10px;
+}
+
+.AssetDescDisabled {
+  background-color:#032C48;
+  padding: 10px;
+  border-radius: 0px 0px 10px 10px;
+  color: #9B9FA0;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.InteractionDisabled {
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  background-color: #032C48;
+  color: #9B9FA0;
+  font-size: 15px;
+  margin-left: 5px;
+  margin-right: 5px;
+  height: 50px;
+  width: 80px;
+  border: hidden;
+}
+
+.StatLineDisabled{
+  margin-top: 10px;
+  margin-bottom: -10px;
+  display: inline-block;
+  border-radius: 10px;
+  color: #9B9FA0;
+  text-align: end;
+  background-color: #032C48;
+  width: 98%;
+}
