@@ -15,7 +15,7 @@ The LUKSO Blockchain is a Web3 network for the creative economy, combining funda
 
 Project Links:
 
-- [Live Demo](luksotastic.com)
+- [Live Demo](https://luksotastic.netlify.app/)
 - [Twitter](https://twitter.com/luksotasticapp)
 - [Instagram](https://www.instagram.com/luksotastic/)
 
