@@ -195,7 +195,8 @@ contract ProfileInteraction {
                     topAssetUpvote[i].unit
                 ) {
                     if (_asset == topAssetUpvote[i].asset) {
-                        // Asset is at the right place, do nothing (i.e. break)
+                        // Asset is at the right place, inc unit
+                        topAssetUpvote[i].unit += 1;
                         break;
                     }
 
@@ -260,7 +261,8 @@ contract ProfileInteraction {
                     assetInteraction[_asset].hypeAmount >= topAssetHype[i].unit
                 ) {
                     if (_asset == topAssetHype[i].asset) {
-                        // Asset is at the right place, do nothing (i.e. break)
+                        // Asset is at the right place, inc hype
+                        topAssetHype[i].unit += 1;
                         break;
                     }
 
@@ -323,7 +325,8 @@ contract ProfileInteraction {
                     topAssetSupport[i].unit
                 ) {
                     if (_asset == topAssetSupport[i].asset) {
-                        // Asset is at the right place, do nothing (i.e. break)
+                        // Asset is at the right place, inc support
+                        topAssetSupport[i].unit += 1;
                         break;
                     }
 
