@@ -1806,7 +1806,10 @@ class App extends React.Component {
       this.logMetaMask('MetaMask connected to Lukso L14');
 
       // Update contract balances from user
-      await this.getLSTCBalance(web3.currentProvider.selectedAddress, 1);
+      let address = (
+        await window.ethereum.request({ method: 'eth_requestAccounts' })
+      )[0];
+      await this.getLSTCBalance(address, 1);
 
       // Launch on Search page after startup
       if (!this.state.enabled) {
