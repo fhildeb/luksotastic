@@ -186,7 +186,7 @@ contract ProfileInteraction {
 
             /**
              * Check if new upvote amount is higher or equal
-             * than any of the current top 10.
+             * than any of the current top 9.
              */
 
             for (uint8 i = 0; i <= 8; i++) {
@@ -199,17 +199,32 @@ contract ProfileInteraction {
                             .upvoteAmount;
                         break;
                     }
-                    for (uint8 s = 8; s > i; s--) {
+
+                    bool inTopAssetBefore = false;
+
+                    // Replace something
+                    for (uint8 s = i + 1; s <= 8; s++) {
                         if (_asset == topAssetUpvote[s].asset) {
-                            topAssetUpvote[s].asset = address(0);
-                            topAssetUpvote[s].unit = 0;
+                            // asset was in topAssets before
+                            // only shift items below i (new position) and above
+                            // s (old position)
+                            for (uint8 j = s; j > i; j--) {
+                                topAssetUpvote[j].unit = topAssetUpvote[j - 1]
+                                    .unit;
+                                topAssetUpvote[j].asset = topAssetUpvote[j - 1]
+                                    .asset;
+                            }
+                            inTopAssetBefore = true;
+                            break;
                         }
                     }
-                    // Push down data of ranks past the new entry
-                    for (uint8 u = 9; u > i; u--) {
-                        if (topAssetUpvote[u - 1].asset != address(0)) {
-                            topAssetUpvote[u].unit = topAssetUpvote[u - 1].unit;
-                            topAssetUpvote[u].asset = topAssetUpvote[u - 1]
+
+                    if (!inTopAssetBefore) {
+                        // shift all items from 8 (length of topAssets) to i (new
+                        // position)
+                        for (uint8 j = 8; j > i; j--) {
+                            topAssetUpvote[j].unit = topAssetUpvote[j - 1].unit;
+                            topAssetUpvote[j].asset = topAssetUpvote[j - 1]
                                 .asset;
                         }
                     }
@@ -222,8 +237,9 @@ contract ProfileInteraction {
                 }
             }
         }
-        // Take interaction: Hype
-        else if (_action == 1) {
+
+        // Interaction: Hype
+        if (_action == 1) {
             // Rise interaction count of asset
             assetInteraction[_asset].hypeAmount += 1;
 
@@ -236,9 +252,10 @@ contract ProfileInteraction {
             balanceOf[_owner] += 12;
 
             /**
-             * Check if new upvote amount is higher or equal
-             * than any of the current top 10.
+             * Check if new hype amount is higher or equal
+             * than any of the current top 9.
              */
+
             for (uint8 i = 0; i <= 8; i++) {
                 if (
                     assetInteraction[_asset].hypeAmount >= topAssetHype[i].unit
@@ -248,17 +265,31 @@ contract ProfileInteraction {
                             .hypeAmount;
                         break;
                     }
-                    for (uint8 s = 8; s > i; s--) {
+
+                    bool inTopAssetBefore = false;
+
+                    // Replace something
+                    for (uint8 s = i + 1; s <= 8; s++) {
                         if (_asset == topAssetHype[s].asset) {
-                            topAssetHype[s].asset = address(0);
-                            topAssetHype[s].unit = 0;
+                            // asset was in topAssets before
+                            // only shift items below i (new position) and above
+                            // s (old position)
+                            for (uint8 j = s; j > i; j--) {
+                                topAssetHype[j].unit = topAssetHype[j - 1].unit;
+                                topAssetHype[j].asset = topAssetHype[j - 1]
+                                    .asset;
+                            }
+                            inTopAssetBefore = true;
+                            break;
                         }
                     }
-                    // Push down data of ranks past the new entry
-                    for (uint8 u = 9; u > i; u--) {
-                        if (topAssetHype[u - 1].asset != address(0)) {
-                            topAssetHype[u].unit = topAssetHype[u - 1].unit;
-                            topAssetHype[u].asset = topAssetHype[u - 1].asset;
+
+                    if (!inTopAssetBefore) {
+                        // shift all items from 8 (length of topAssets) to i (new
+                        // position)
+                        for (uint8 j = 8; j > i; j--) {
+                            topAssetHype[j].unit = topAssetHype[j - 1].unit;
+                            topAssetHype[j].asset = topAssetHype[j - 1].asset;
                         }
                     }
 
@@ -269,8 +300,9 @@ contract ProfileInteraction {
                 }
             }
         }
+
         // Interaction: Support
-        else if (_action == 2) {
+        if (_action == 2) {
             // Rise interaction count of asset
             assetInteraction[_asset].supportAmount += 1;
 
@@ -283,9 +315,10 @@ contract ProfileInteraction {
             balanceOf[_owner] += 20;
 
             /**
-             * Check if new upvote amount is higher or equal
-             * than any of the current top 10.
+             * Check if new support amount is higher or equal
+             * than any of the current top 9.
              */
+
             for (uint8 i = 0; i <= 8; i++) {
                 if (
                     assetInteraction[_asset].supportAmount >=
@@ -297,18 +330,33 @@ contract ProfileInteraction {
                         break;
                     }
 
-                    for (uint8 s = 8; s > i; s--) {
+                    bool inTopAssetBefore = false;
+
+                    // Replace something
+                    for (uint8 s = i + 1; s <= 8; s++) {
                         if (_asset == topAssetSupport[s].asset) {
-                            topAssetSupport[s].asset = address(0);
-                            topAssetSupport[s].unit = 0;
+                            // asset was in topAssets before
+                            // only shift items below i (new position) and above
+                            // s (old position)
+                            for (uint8 j = s; j > i; j--) {
+                                topAssetSupport[j].unit = topAssetSupport[j - 1]
+                                    .unit;
+                                topAssetSupport[j].asset = topAssetSupport[
+                                    j - 1
+                                ].asset;
+                            }
+                            inTopAssetBefore = true;
+                            break;
                         }
                     }
-                    // Push down data of ranks past the new entry
-                    for (uint8 u = 9; u > i; u--) {
-                        if (topAssetSupport[u - 1].asset != address(0)) {
-                            topAssetSupport[u].unit = topAssetSupport[u - 1]
+
+                    if (!inTopAssetBefore) {
+                        // shift all items from 8 (length of topAssets) to i (new
+                        // position)
+                        for (uint8 j = 8; j > i; j--) {
+                            topAssetSupport[j].unit = topAssetSupport[j - 1]
                                 .unit;
-                            topAssetSupport[u].asset = topAssetSupport[u - 1]
+                            topAssetSupport[j].asset = topAssetSupport[j - 1]
                                 .asset;
                         }
                     }
@@ -321,25 +369,41 @@ contract ProfileInteraction {
                 }
             }
         }
+
+        // RANKING ACCOUNTS (Owner of asset or message sender)
+
         /**
-         * Check if new LSTC balance of owner is higher or equal
+         * Check if new LSTC balance of OWNER is higher or equal
          * than any of the current top 9.
          */
         for (uint8 i = 0; i <= 8; i++) {
             if (balanceOf[_owner] >= balanceOf[topAccounts[i]]) {
                 if (_owner == topAccounts[i]) {
+                    // account is at the right place, change nothing (i.e. break)
                     break;
                 }
-                for (uint8 s = 8; s > i; s--) {
+
+                bool inTopAccountsBefore = false;
+
+                // Replace something
+                for (uint8 s = i + 1; s <= 8; s++) {
                     if (_owner == topAccounts[s]) {
-                        topAccounts[s] = address(0);
+                        // account was in topAccounts before
+                        // only shift accounts below i (new position) and above
+                        // s (old position)
+                        for (uint8 j = s; j > i; j--) {
+                            topAccounts[j] = topAccounts[j - 1];
+                        }
+                        inTopAccountsBefore = true;
+                        break;
                     }
                 }
 
-                // Push down data of ranks past the new entry
-                for (uint8 u = 9; u > i; u--) {
-                    if (topAccounts[u - 1] != address(0)) {
-                        topAccounts[u] = topAccounts[u - 1];
+                if (!inTopAccountsBefore) {
+                    // shift all items from 8 (length of topAssets) to i (new
+                    // position)
+                    for (uint8 j = 8; j > i; j--) {
+                        topAccounts[j] = topAccounts[j - 1];
                     }
                 }
 
@@ -350,24 +414,37 @@ contract ProfileInteraction {
         }
 
         /**
-         * Check if new LSTC balance of sender is higher or equal
+         * Check if new LSTC balance of MSG.SENDER is higher or equal
          * than any of the current top 9.
          */
         for (uint8 i = 0; i <= 8; i++) {
             if (balanceOf[msg.sender] >= balanceOf[topAccounts[i]]) {
                 if (msg.sender == topAccounts[i]) {
+                    // account is at the right place, change nothing (i.e. break)
                     break;
                 }
 
-                for (uint8 s = 8; s > i; s--) {
+                bool inTopAccountsBefore = false;
+
+                // Replace something
+                for (uint8 s = i + 1; s <= 8; s++) {
                     if (msg.sender == topAccounts[s]) {
-                        topAccounts[s] = address(0);
+                        // account was in topAccounts before
+                        // only shift accounts below i (new position) and above
+                        // s (old position)
+                        for (uint8 j = s; j > i; j--) {
+                            topAccounts[j] = topAccounts[j - 1];
+                        }
+                        inTopAccountsBefore = true;
+                        break;
                     }
                 }
-                // Push down data of ranks past the new entry
-                for (uint8 u = 9; u > i; u--) {
-                    if (topAccounts[u - 1] != address(0)) {
-                        topAccounts[u] = topAccounts[u - 1];
+
+                if (!inTopAccountsBefore) {
+                    // shift all items from 8 (length of topAssets) to i (new
+                    // position)
+                    for (uint8 j = 8; j > i; j--) {
+                        topAccounts[j] = topAccounts[j - 1];
                     }
                 }
 
