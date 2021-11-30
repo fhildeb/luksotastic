@@ -207,7 +207,7 @@ contract ProfileInteraction {
                     }
                     // Push down data of ranks past the new entry
                     for (uint8 u = 9; u > i; u--) {
-                        if (topAssetHype[u - 1].asset != address(0)) {
+                        if (topAssetUpvote[u - 1].asset != address(0)) {
                             topAssetUpvote[u].unit = topAssetUpvote[u - 1].unit;
                             topAssetUpvote[u].asset = topAssetUpvote[u - 1]
                                 .asset;
