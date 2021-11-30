@@ -42,7 +42,7 @@ const provider = new Web3.providers.HttpProvider(
 );
 
 // Contract address of the LUKSOTSTIC smart contract
-const backendAddress = '0x32139eAe213760f703Ec7228fFCE36b30fBB54AA';
+const backendAddress = '0xd1044e1868Dff72957050beDB71629fCa6997545';
 
 // Contract address of the example profile
 const sampleAddress = '0x0C03fBa782b07bCf810DEb3b7f0595024A444F4e';
