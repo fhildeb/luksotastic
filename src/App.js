@@ -42,7 +42,7 @@ const provider = new Web3.providers.HttpProvider(
 );
 
 // Contract address of the LUKSOTSTIC smart contract
-const backendAddress = '0x6C658BAbE464f5cBd6cBc00eDb4523350321085A';
+const backendAddress = '0x3063e4e553d41bda8a0f9a08a6aea43ad402eb50';
 
 // Contract address of the example profile
 const sampleAddress = '0x0C03fBa782b07bCf810DEb3b7f0595024A444F4e';
@@ -165,6 +165,17 @@ class App extends React.Component {
     } = this.state;
     return (
       <div className="App">
+        <div
+          className="Appendix"
+          onClick={() =>
+            window
+              .open('https://github.com/fhildeb/luksotastic', '_blank')
+              .focus()
+          }
+        >
+          THIS APPLICATION IS DEPLOYED AS SHOWCASE, IF YOU RUN INTO ISSUES,
+          PLEASE CLICK HERE TO CLONE FROM GITHUB AND RUN LOCALLY
+        </div>
         <div className="MenuBar" id="menuBar">
           <div className="Head" onClick={() => this.navigate(0)}>
             Documentation

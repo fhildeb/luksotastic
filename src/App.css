@@ -36,6 +36,12 @@ textarea:focus, input:focus{
   color: #9B9FA0;
 }
 
+.Appendix {
+  color: #7F5468;
+  padding: 2%;
+  cursor: pointer;
+}
+
 
 .Head {
   display: inline-block;

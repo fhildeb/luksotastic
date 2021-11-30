@@ -191,9 +191,15 @@ contract ProfileInteraction {
 
             for (uint8 i = 0; i <= 8; i++) {
                 if (
-                    assetInteraction[_asset].upvoteAmount >
+                    assetInteraction[_asset].upvoteAmount >=
                     topAssetUpvote[i].unit
                 ) {
+                    if (
+                        assetInteraction[_asset].upvoteAmount ==
+                        topAssetUpvote[i].unit
+                    ) {
+                        break;
+                    }
                     for (uint8 s = 8; s > i; s--) {
                         if (_asset == topAssetUpvote[s].asset) {
                             topAssetUpvote[s].asset = address(0);
@@ -238,8 +244,14 @@ contract ProfileInteraction {
              */
             for (uint8 i = 0; i <= 8; i++) {
                 if (
-                    assetInteraction[_asset].hypeAmount > topAssetHype[i].unit
+                    assetInteraction[_asset].hypeAmount >= topAssetHype[i].unit
                 ) {
+                    if (
+                        assetInteraction[_asset].hypeAmount ==
+                        topAssetHype[i].unit
+                    ) {
+                        break;
+                    }
                     for (uint8 s = 8; s > i; s--) {
                         if (_asset == topAssetHype[s].asset) {
                             topAssetHype[s].asset = address(0);
@@ -282,9 +294,16 @@ contract ProfileInteraction {
              */
             for (uint8 i = 0; i <= 8; i++) {
                 if (
-                    assetInteraction[_asset].supportAmount >
+                    assetInteraction[_asset].supportAmount >=
                     topAssetSupport[i].unit
                 ) {
+                    if (
+                        assetInteraction[_asset].supportAmount ==
+                        topAssetSupport[i].unit
+                    ) {
+                        break;
+                    }
+
                     for (uint8 s = 8; s > i; s--) {
                         if (_asset == topAssetSupport[s].asset) {
                             topAssetSupport[s].asset = address(0);
@@ -316,7 +335,10 @@ contract ProfileInteraction {
          * than any of the current top 9.
          */
         for (uint8 i = 0; i <= 8; i++) {
-            if (balanceOf[_owner] > balanceOf[topAccounts[i]]) {
+            if (balanceOf[_owner] >= balanceOf[topAccounts[i]]) {
+                if (_owner == topAccounts[i]) {
+                    break;
+                }
                 for (uint8 s = 8; s > i; s--) {
                     if (_owner == topAccounts[s]) {
                         topAccounts[s] = address(0);
@@ -325,9 +347,7 @@ contract ProfileInteraction {
 
                 // Push down data of ranks past the new entry
                 for (uint8 u = 9; u > i; u--) {
-                    if (topAccounts[u - 1] == address(0)) {
-                        continue;
-                    } else {
+                    if (topAccounts[u - 1] != address(0)) {
                         topAccounts[u] = topAccounts[u - 1];
                     }
                 }
@@ -343,7 +363,11 @@ contract ProfileInteraction {
          * than any of the current top 9.
          */
         for (uint8 i = 0; i <= 8; i++) {
-            if (balanceOf[msg.sender] > balanceOf[topAccounts[i]]) {
+            if (balanceOf[msg.sender] >= balanceOf[topAccounts[i]]) {
+                if (_owner == topAccounts[i]) {
+                    break;
+                }
+
                 for (uint8 s = 8; s > i; s--) {
                     if (msg.sender == topAccounts[s]) {
                         topAccounts[s] = address(0);
@@ -351,9 +375,7 @@ contract ProfileInteraction {
                 }
                 // Push down data of ranks past the new entry
                 for (uint8 u = 9; u > i; u--) {
-                    if (topAccounts[u - 1] == address(0)) {
-                        continue;
-                    } else {
+                    if (topAccounts[u - 1] != address(0)) {
                         topAccounts[u] = topAccounts[u - 1];
                     }
                 }
