@@ -1487,7 +1487,7 @@ class App extends React.Component {
       const tokenAddress = backendAddress;
       const tokenSymbol = await Luksotastic.methods.symbol().call();
       const tokenDecimals = await Luksotastic.methods.decimals().call();
-      const tokenImage = window.location.href + '/luksotastic_logo.png';
+      const tokenImage = 'https://www.fhildeb.com/luksotastic_logo.png';
 
       // Call the MetaMask interface for adding the token
       await window.ethereum.request({
