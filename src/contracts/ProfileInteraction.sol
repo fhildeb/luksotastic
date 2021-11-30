@@ -194,10 +194,9 @@ contract ProfileInteraction {
                     assetInteraction[_asset].upvoteAmount >=
                     topAssetUpvote[i].unit
                 ) {
-                    if (
-                        assetInteraction[_asset].upvoteAmount ==
-                        topAssetUpvote[i].unit
-                    ) {
+                    if (_asset == topAssetUpvote[i].asset) {
+                        topAssetUpvote[i].unit = assetInteraction[_asset]
+                            .upvoteAmount;
                         break;
                     }
                     for (uint8 s = 8; s > i; s--) {
@@ -208,9 +207,7 @@ contract ProfileInteraction {
                     }
                     // Push down data of ranks past the new entry
                     for (uint8 u = 9; u > i; u--) {
-                        if (topAssetHype[u - i].asset == address(0)) {
-                            continue;
-                        } else {
+                        if (topAssetHype[u - 1].asset != address(0)) {
                             topAssetUpvote[u].unit = topAssetUpvote[u - 1].unit;
                             topAssetUpvote[u].asset = topAssetUpvote[u - 1]
                                 .asset;
@@ -246,10 +243,9 @@ contract ProfileInteraction {
                 if (
                     assetInteraction[_asset].hypeAmount >= topAssetHype[i].unit
                 ) {
-                    if (
-                        assetInteraction[_asset].hypeAmount ==
-                        topAssetHype[i].unit
-                    ) {
+                    if (_asset == topAssetHype[i].asset) {
+                        topAssetHype[i].unit = assetInteraction[_asset]
+                            .hypeAmount;
                         break;
                     }
                     for (uint8 s = 8; s > i; s--) {
@@ -260,9 +256,7 @@ contract ProfileInteraction {
                     }
                     // Push down data of ranks past the new entry
                     for (uint8 u = 9; u > i; u--) {
-                        if (topAssetHype[u - i].asset == address(0)) {
-                            continue;
-                        } else {
+                        if (topAssetHype[u - 1].asset != address(0)) {
                             topAssetHype[u].unit = topAssetHype[u - 1].unit;
                             topAssetHype[u].asset = topAssetHype[u - 1].asset;
                         }
@@ -297,10 +291,9 @@ contract ProfileInteraction {
                     assetInteraction[_asset].supportAmount >=
                     topAssetSupport[i].unit
                 ) {
-                    if (
-                        assetInteraction[_asset].supportAmount ==
-                        topAssetSupport[i].unit
-                    ) {
+                    if (_asset == topAssetSupport[i].asset) {
+                        topAssetSupport[i].unit = assetInteraction[_asset]
+                            .supportAmount;
                         break;
                     }
 
@@ -312,9 +305,7 @@ contract ProfileInteraction {
                     }
                     // Push down data of ranks past the new entry
                     for (uint8 u = 9; u > i; u--) {
-                        if (topAssetSupport[u - i].asset == address(0)) {
-                            continue;
-                        } else {
+                        if (topAssetSupport[u - 1].asset != address(0)) {
                             topAssetSupport[u].unit = topAssetSupport[u - 1]
                                 .unit;
                             topAssetSupport[u].asset = topAssetSupport[u - 1]
@@ -364,7 +355,7 @@ contract ProfileInteraction {
          */
         for (uint8 i = 0; i <= 8; i++) {
             if (balanceOf[msg.sender] >= balanceOf[topAccounts[i]]) {
-                if (_owner == topAccounts[i]) {
+                if (msg.sender == topAccounts[i]) {
                     break;
                 }
 
