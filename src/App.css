@@ -562,11 +562,10 @@ textarea:focus, input:focus{
 
  .LockedAsset {
   width: 30%;
-  height: 20%;
   background-color: #032C48;
   padding: 10px;
   text-align: center;
-  margin: 0px 10px 10px 0px;
+  margin: 0px 1% 1% 0px;
   display: inline-block;
   vertical-align: top;
   border-radius: 10px;
