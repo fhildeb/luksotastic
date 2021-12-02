@@ -827,6 +827,7 @@ class App extends React.Component {
       'exploreBodyAContent',
       'id',
       'ranking',
+      'upvote',
     );
 
     // Adding all top hypeed assets to the explore page
@@ -835,6 +836,7 @@ class App extends React.Component {
       'exploreBodyBContent',
       'id',
       'ranking',
+      'hype',
     );
 
     // Adding all top upvoted assets to the explore page
@@ -843,6 +845,7 @@ class App extends React.Component {
       'exploreBodyCContent',
       'id',
       'ranking',
+      'support',
     );
 
     // Adding all top accounts with mac balance to the explore page
@@ -1056,10 +1059,17 @@ class App extends React.Component {
    *
    * @param {string array} digitalAssets Array of asset addresses
    * @param {raw string} position Name of content area where assets will be displayed
-   * @param {raw string} type type of position name: 'class' or 'id' property
-   * @param {raw string} purpose purpose of asset: 'search' (search profile) or 'ranking' (explore page)
+   * @param {raw string} type Type of position name: 'class' or 'id' property
+   * @param {raw string} purpose Purpose of asset: 'search' (search profile) or 'ranking' (explore page)
+   * @param {raw string} leaderboardType Which unit type to display on leaderboard
    */
-  createAssetFrontend = async (digitalAssets, position, type, purpose) => {
+  createAssetFrontend = async (
+    digitalAssets,
+    position,
+    type,
+    purpose,
+    leaderboardType,
+  ) => {
     // Enable Web3
     const { web3 } = this.state;
 
@@ -1107,18 +1117,7 @@ class App extends React.Component {
                 `<div class="Ranking">RANK ${i + 1}</div>` +
                 `<div class="Ranking">ADDRESS EMPTY</div>` +
                 `<img class="AssetImg" src="./blank.png">` +
-                `<div class="StatLineDisabled">` +
-                `<div class="AssetStat">0</div>` +
-                `<button class="InteractionDisabled">UPVOTE</button>` +
-                `</div><p></p>` +
-                `<div class="StatLineDisabled">` +
-                `<div class="AssetStat">0</div>` +
-                `<button class="InteractionDisabled">HYPE UP</button>` +
-                `</div><p></p>` +
-                `<div class="StatLineDisabled">` +
-                `<div class="AssetStat">0</div>` +
-                `<button class="InteractionDisabled">SUPPORT</button>` +
-                `</div><p></p>`;
+                `<div class="ExploreAmountText">NO INTERACTION</div>`;
             } else {
               // Fill asset element with regular elements
               temp.innerHTML =
@@ -1167,23 +1166,53 @@ class App extends React.Component {
 
           // Check if asset is for the explore page
           if (purpose === 'ranking') {
-            // Fill asset element with ranking elements
-            temp.innerHTML =
-              `<div class="Ranking">RANK ${i + 1}</div>` +
-              `<div class="Ranking">${digitalAssets[i]}</div>` +
-              `<img class="AssetImg" src=${baseurl}${assetImageLink}>` +
-              `<div id="upvoteStatLine${digitalAssets[i]}" class="StatLine">` +
-              `<div id="upvoteAmount" class="AssetStat" >${assetStats.upvoteAmount}</div>` +
-              `<button id="upvote${digitalAssets[i]}" class="Interaction">UPVOTE</button>` +
-              `</div><p></p>` +
-              `<div id="hypeStatLine${digitalAssets[i]}" class="StatLine">` +
-              `<div id="hypeAmount" class="AssetStat"> ${assetStats.hypeAmount}</div>` +
-              `<button id="hype${digitalAssets[i]}" class="Interaction">HYPE UP</button>` +
-              `</div><p></p>` +
-              `<div id="supportStatLine${digitalAssets[i]}" class="StatLine">` +
-              `<div id="supportAmount" class="AssetStat">${assetStats.supportAmount}</div>` +
-              `<button id="support${digitalAssets[i]}" class="Interaction">SUPPORT</button>` +
-              `</div><p></p>`;
+            if (leaderboardType === 'upvote') {
+              // Fill asset element with ranking elements
+              if (assetStats.upvoteAmount == 1) {
+                temp.innerHTML =
+                  `<div class="Ranking">RANK ${i + 1}</div>` +
+                  `<div class="Ranking">${digitalAssets[i]}</div>` +
+                  `<img class="AssetImg" src=${baseurl}${assetImageLink}>` +
+                  `<div class="ExploreAmountText">UPVOTED ${assetStats.upvoteAmount} TIME</div>`;
+              } else {
+                temp.innerHTML =
+                  `<div class="Ranking">RANK ${i + 1}</div>` +
+                  `<div class="Ranking">${digitalAssets[i]}</div>` +
+                  `<img class="AssetImg" src=${baseurl}${assetImageLink}>` +
+                  `<div class="ExploreAmountText">UPVOTED ${assetStats.upvoteAmount} TIMES</div>`;
+              }
+            } else if (leaderboardType === 'hype') {
+              // Fill asset element with ranking elements
+              if (assetStats.hypeAmount == 1) {
+                temp.innerHTML =
+                  `<div class="Ranking">RANK ${i + 1}</div>` +
+                  `<div class="Ranking">${digitalAssets[i]}</div>` +
+                  `<img class="AssetImg" src=${baseurl}${assetImageLink}>` +
+                  `<div class="ExploreAmountText">HYPED UP ${assetStats.hypeAmount} TIME</div>`;
+              } else {
+                temp.innerHTML =
+                  `<div class="Ranking">RANK ${i + 1}</div>` +
+                  `<div class="Ranking">${digitalAssets[i]}</div>` +
+                  `<img class="AssetImg" src=${baseurl}${assetImageLink}>` +
+                  `<div class="ExploreAmountText">HYPED UP ${assetStats.hypeAmount} TIMES</div>`;
+              }
+              // Is support leaderboard
+            } else {
+              // Fill asset element with ranking elements
+              if (assetStats.supportAmount == 1) {
+                temp.innerHTML =
+                  `<div class="Ranking">RANK ${i + 1}</div>` +
+                  `<div class="Ranking">${digitalAssets[i]}</div>` +
+                  `<img class="AssetImg" src=${baseurl}${assetImageLink}>` +
+                  `<div class="ExploreAmountText">SUPPORTED ${assetStats.supportAmount} TIME</div>`;
+              } else {
+                temp.innerHTML =
+                  `<div class="Ranking">RANK ${i + 1}</div>` +
+                  `<div class="Ranking">${digitalAssets[i]}</div>` +
+                  `<img class="AssetImg" src=${baseurl}${assetImageLink}>` +
+                  `<div class="ExploreAmountText">SUPPORTED ${assetStats.supportAmount} TIMES</div>`;
+              }
+            }
           } else {
             // Fill asset element with regular elements
             temp.innerHTML =
@@ -1208,36 +1237,38 @@ class App extends React.Component {
             document.getElementById(position).appendChild(temp);
           }
 
-          // Add upvote functionality to the upvote button
-          document
-            .getElementById('upvote' + digitalAssets[i])
-            .addEventListener('click', () =>
-              this.luksotasticInteraction(
-                digitalAssets[i],
-                this.state.address,
-                0,
-              ),
-            );
-          // Add hype functionality to the hype button
-          document
-            .getElementById('hype' + digitalAssets[i])
-            .addEventListener('click', () =>
-              this.luksotasticInteraction(
-                digitalAssets[i],
-                this.state.address,
-                1,
-              ),
-            );
-          // Add support functionality to the support button
-          document
-            .getElementById('support' + digitalAssets[i])
-            .addEventListener('click', () =>
-              this.luksotasticInteraction(
-                digitalAssets[i],
-                this.state.address,
-                2,
-              ),
-            );
+          if (purpose !== 'ranking') {
+            // Add upvote functionality to the upvote button
+            document
+              .getElementById('upvote' + digitalAssets[i])
+              .addEventListener('click', () =>
+                this.luksotasticInteraction(
+                  digitalAssets[i],
+                  this.state.address,
+                  0,
+                ),
+              );
+            // Add hype functionality to the hype button
+            document
+              .getElementById('hype' + digitalAssets[i])
+              .addEventListener('click', () =>
+                this.luksotasticInteraction(
+                  digitalAssets[i],
+                  this.state.address,
+                  1,
+                ),
+              );
+            // Add support functionality to the support button
+            document
+              .getElementById('support' + digitalAssets[i])
+              .addEventListener('click', () =>
+                this.luksotasticInteraction(
+                  digitalAssets[i],
+                  this.state.address,
+                  2,
+                ),
+              );
+          }
         }
       } catch (err) {
         console.log('Asset frontend could not be created');
@@ -1545,6 +1576,7 @@ class App extends React.Component {
       'AssetArea',
       'class',
       'search',
+      'none',
     );
 
     // Lock assets where the user already interacted with

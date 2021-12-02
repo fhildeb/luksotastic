@@ -483,6 +483,10 @@ textarea:focus, input:focus{
   height: 30vw;
 }
 
+.ExploreAmountText {
+  padding: 4%;
+}
+
 .DescContainer {
   height: 80px;
   position: relative;
