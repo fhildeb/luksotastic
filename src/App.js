@@ -1168,7 +1168,7 @@ class App extends React.Component {
           if (purpose === 'ranking') {
             if (leaderboardType === 'upvote') {
               // Fill asset element with ranking elements
-              if (assetStats.upvoteAmount == 1) {
+              if (assetStats.upvoteAmount === 1) {
                 temp.innerHTML =
                   `<div class="Ranking">RANK ${i + 1}</div>` +
                   `<div class="Ranking">${digitalAssets[i]}</div>` +
@@ -1183,7 +1183,7 @@ class App extends React.Component {
               }
             } else if (leaderboardType === 'hype') {
               // Fill asset element with ranking elements
-              if (assetStats.hypeAmount == 1) {
+              if (assetStats.hypeAmount === 1) {
                 temp.innerHTML =
                   `<div class="Ranking">RANK ${i + 1}</div>` +
                   `<div class="Ranking">${digitalAssets[i]}</div>` +
@@ -1199,7 +1199,7 @@ class App extends React.Component {
               // Is support leaderboard
             } else {
               // Fill asset element with ranking elements
-              if (assetStats.supportAmount == 1) {
+              if (assetStats.supportAmount === 1) {
                 temp.innerHTML =
                   `<div class="Ranking">RANK ${i + 1}</div>` +
                   `<div class="Ranking">${digitalAssets[i]}</div>` +
