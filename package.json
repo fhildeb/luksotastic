@@ -19,10 +19,10 @@
     "web3": "^1.6.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "GENERATE_SOURCEMAP=false react-app-rewired start",
+    "build": "GENERATE_SOURCEMAP=false react-app-rewired build",
+    "test": "GENERATE_SOURCEMAP=false react-app-rewired test",
+    "eject": "GENERATE_SOURCEMAP=false react-app-rewired eject"
   },
   "eslintConfig": {
     "extends": [
@@ -43,6 +43,16 @@
     ]
   },
   "devDependencies": {
-    "prettier": "2.4.1"
+    "assert": "^2.0.0",
+    "buffer": "^6.0.3",
+    "crypto-browserify": "^3.12.0",
+    "https-browserify": "^1.0.0",
+    "os-browserify": "^0.3.0",
+    "prettier": "2.4.1",
+    "process": "^0.11.10",
+    "react-app-rewired": "^2.2.1",
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0",
+    "url": "^0.11.0"
   }
 }

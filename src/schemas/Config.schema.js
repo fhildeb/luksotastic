@@ -1,5 +1,5 @@
 const Config = {
-  ipfsGateway: 'https://ipfs.lukso.network/ipfs/',
+  ipfsGateway: 'https://2eff.lukso.dev/ipfs/',
 };
 
 module.exports = Config;

@@ -54,9 +54,6 @@ The Application will need **npm** and **Node.js** installed on the machine. Foll
 
 ` git clone [this project]`<br/>
 `cd ./luksotastic`<br/>
-`npm install --save web3`<br/>
-`npm install --save @erc725/erc725.js`<br/>
-`npm install --save react-scroll`
 
 `npm install`
 

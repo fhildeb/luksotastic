@@ -936,7 +936,7 @@ class App extends React.Component {
             // Get background images
             let rawBGPictures = [];
             for (let i in fetchedData.LSP3Profile.LSP3Profile.backgroundImage) {
-              let baseurl = 'https://ipfs.lukso.network/ipfs/';
+              let baseurl = 'https://2eff.lukso.dev/ipfs/';
               rawBGPictures.push([
                 i,
                 baseurl +
@@ -949,7 +949,7 @@ class App extends React.Component {
             // Get profile pictures
             let rawPFPictures = [];
             for (let i in fetchedData.LSP3Profile.LSP3Profile.profileImage) {
-              let baseurl = 'https://ipfs.lukso.network/ipfs/';
+              let baseurl = 'https://2eff.lukso.dev/ipfs/';
               rawPFPictures.push([
                 i,
                 baseurl +
@@ -1154,7 +1154,7 @@ class App extends React.Component {
           let assetImageLink =
             jsonFromURL.LSP4Metadata.images[0][0].url.substr(7);
           // Store IPFS base URL
-          let baseurl = 'https://ipfs.lukso.network/ipfs/';
+          let baseurl = 'https://2eff.lukso.dev/ipfs/';
 
           // Instanciate unified frontend for the asset
           let temp = document.createElement('div');
@@ -1315,7 +1315,7 @@ class App extends React.Component {
         // Convert background picture to link
         let rawBGPictures = [];
         for (let i in fetchedData.LSP3Profile.LSP3Profile.backgroundImage) {
-          let baseurl = 'https://ipfs.lukso.network/ipfs/';
+          let baseurl = 'https://2eff.lukso.dev/ipfs/';
           rawBGPictures.push([
             i,
             baseurl +
@@ -1328,7 +1328,7 @@ class App extends React.Component {
         // Convert profile picture to link
         let rawPFPictures = [];
         for (let i in fetchedData.LSP3Profile.LSP3Profile.profileImage) {
-          let baseurl = 'https://ipfs.lukso.network/ipfs/';
+          let baseurl = 'https://2eff.lukso.dev/ipfs/';
           rawPFPictures.push([
             i,
             baseurl +
@@ -1694,7 +1694,7 @@ class App extends React.Component {
 
       // Generate IPFS link from decoded meta data
       let storageLink =
-        'https://ipfs.lukso.network/ipfs/' +
+        'https://2eff.lukso.dev/ipfs/' +
         decodedLSP4Data.LSP4Metadata.url.substring(7);
       return storageLink;
     } catch (err) {
